@@ -18,7 +18,7 @@ test_idx = np.array(dta.Date >= '2014-01-01')
 results_train = np.array(dta.FTR[train_idx])
 results_test = np.array(dta.FTR[test_idx])
 
-feature_columns = ['FTR']
+feature_columns = ['B365H', 'B365D', 'B365A', 'BWH', 'BWD']
 
 #Column numbers for odds for the three outcomes 
 cidx_home = [i for i, col in enumerate(dta.columns) if col[-1] in 'H' and col in feature_columns]
