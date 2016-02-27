@@ -1,0 +1,36 @@
+digraph Tree {
+node [shape=box] ;
+0 [label="FTHG <= 1.5\ngini = 0.6609\nsamples = 260\nvalue = [86, 73, 101]"] ;
+1 [label="FTAG <= 0.5\ngini = 0.5989\nsamples = 147\nvalue = [75, 51, 21]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="FTHG <= 0.5\ngini = 0.4943\nsamples = 47\nvalue = [0, 26, 21]"] ;
+1 -> 2 ;
+3 [label="gini = 0.0\nsamples = 26\nvalue = [0, 26, 0]"] ;
+2 -> 3 ;
+4 [label="gini = 0.0\nsamples = 21\nvalue = [0, 0, 21]"] ;
+2 -> 4 ;
+5 [label="FTAG <= 1.5\ngini = 0.375\nsamples = 100\nvalue = [75, 25, 0]"] ;
+1 -> 5 ;
+6 [label="FTHG <= 0.5\ngini = 0.4993\nsamples = 52\nvalue = [27, 25, 0]"] ;
+5 -> 6 ;
+7 [label="gini = 0.0\nsamples = 27\nvalue = [27, 0, 0]"] ;
+6 -> 7 ;
+8 [label="gini = 0.0\nsamples = 25\nvalue = [0, 25, 0]"] ;
+6 -> 8 ;
+9 [label="gini = 0.0\nsamples = 48\nvalue = [48, 0, 0]"] ;
+5 -> 9 ;
+10 [label="FTAG <= 1.5\ngini = 0.4514\nsamples = 113\nvalue = [11, 22, 80]"] ;
+0 -> 10 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+11 [label="gini = 0.0\nsamples = 75\nvalue = [0, 0, 75]"] ;
+10 -> 11 ;
+12 [label="FTAG <= 2.5\ngini = 0.5637\nsamples = 38\nvalue = [11, 22, 5]"] ;
+10 -> 12 ;
+13 [label="FTHG <= 2.5\ngini = 0.3403\nsamples = 23\nvalue = [0, 18, 5]"] ;
+12 -> 13 ;
+14 [label="gini = 0.0\nsamples = 18\nvalue = [0, 18, 0]"] ;
+13 -> 14 ;
+15 [label="gini = 0.0\nsamples = 5\nvalue = [0, 0, 5]"] ;
+13 -> 15 ;
+16 [label="gini = 0.3911\nsamples = 15\nvalue = [11, 4, 0]"] ;
+12 -> 16 ;
+}

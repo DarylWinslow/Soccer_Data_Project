@@ -90,34 +90,34 @@ def encode_target(df, target_column):
     return (df_mod, targets)
 
 
-def get_iris_data():
-    """Get the iris data, from local csv or pandas repo."""
-    if os.path.exists("iris.csv"):
-        print("-- iris.csv found locally")
-        df = pd.read_csv("iris.csv", index_col=0)
+def get_foot_data():
+    """Get the E0 data, from local csv or pandas repo."""
+    if os.path.exists("E0.csv"):
+        print("-- E0.csv found locally")
+        df = pd.read_csv("E0.csv", index_col=0)
     else:
         print("-- trying to download from github")
-        fn = "https://raw.githubusercontent.com/pydata/pandas/master/pandas/tests/data/iris.csv"
+        fn = "http://www.football-data.co.uk/mmz4281/1516/E0.csv"
         try:
             df = pd.read_csv(fn)
         except:
-            exit("-- Unable to download iris.csv")
+            exit("-- Unable to download E0.csv")
 
-        with open("iris.csv", 'w') as f:
-            print("-- writing to local iris.csv file")
+        with open("E0.csv", 'w') as f:
+            print("-- writing to local E0.csv file")
             df.to_csv(f)
 
     return df
 
 if __name__ == '__main__':
     print("\n-- get data:")
-    df = get_iris_data()
+    df = get_foot_data()
 
     print("\n-- df.head():")
     print(df.head(), end="\n\n")
 
-    features = ["SepalLength", "SepalWidth", "PetalLength", "PetalWidth"]
-    df, targets = encode_target(df, "Name")
+    features = ["FTHG", "FTAG", "HS", "AS"]
+    df, targets = encode_target(df, "FTR")
     y = df["Target"]
     X = df[features]
 
@@ -128,7 +128,7 @@ if __name__ == '__main__':
     get_code(dt, features, targets)
 
     print("\n-- look back at original data using pandas")
-    print("-- df[df['PetalLength'] <= 2.45]]['Name'].unique(): ",
-          df[df['PetalLength'] <= 2.45]['Name'].unique(), end="\n\n")
+    print("-- df[df['FTHG'] <= 4.0]]['Name'].unique(): ",
+          df[df['FTHG'] <= 4.0]['FTR'].unique(), end="\n\n")
 
     visualize_tree(dt, features)
