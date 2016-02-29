@@ -14,7 +14,7 @@ from sklearn.tree import export_graphviz
 from sklearn.grid_search import GridSearchCV
 from sklearn.grid_search import RandomizedSearchCV
 from sklearn.cross_validation import  cross_val_score
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 
 def get_code(tree, feature_names, target_names,
@@ -231,10 +231,7 @@ if __name__ == "__main__":
     print("-- 10-fold cross-validation ")
           
           
-    dt_old = AdaBoostClassifier(
-    DecisionTreeClassifier(max_depth=3),
-    n_estimators=1000,
-    learning_rate=0.4, random_state=42)
+    dt_old = RandomForestClassifier(n_estimators=10)
  
     dt_old = dt_old.fit(X, y)
 
@@ -246,11 +243,14 @@ if __name__ == "__main__":
     print("-- Grid Parameter Search via 10-fold CV")
     
     # set of parameters to test
-    param_grid = {"n_estimators": [50, 100, 500, 1000],
-                  "learning_rate": [0.2, 0.5, 0.7, 1],
+    param_grid = {"criterion": ["gini", "entropy"],
+                  "min_samples_split": [2, 10, 20],
+                  "max_depth": [None, 2, 5, 10],
+                  "min_samples_leaf": [1, 5, 10],
+                  "max_leaf_nodes": [None, 5, 10, 20],
                   }
     
-    dt = AdaBoostClassifier()
+    dt = DecisionTreeClassifier()
     ts_gs = run_gridsearch(X, y, dt, param_grid, cv=10)
     
     print("\n-- Best Parameters:")
@@ -259,18 +259,18 @@ if __name__ == "__main__":
     
     # test the retuned best parameters
     print("\n\n-- Testing best parameters [Grid]...")
-    dt_ts_gs = AdaBoostClassifier(**ts_gs)
+    dt_ts_gs = DecisionTreeClassifier(**ts_gs)
     scores = cross_val_score(dt_ts_gs, X, y, cv=10)
     print("mean: {:.3f} (std: {:.3f})".format(scores.mean(), 
                                               scores.std()),
                                               end="\n\n" )
     
-    #print("\n-- get_code for best parameters [Grid]:", end="\n\n")
-    #dt_ts_gs.fit(X,y)
-    #get_code(dt_ts_gs, features, targets)
+    print("\n-- get_code for best parameters [Grid]:", end="\n\n")
+    dt_ts_gs.fit(X,y)
+    get_code(dt_ts_gs, features, targets)
     
-    #visualize_tree(dt_ts_gs, features, fn="grid_best")
-"""    
+    visualize_tree(dt_ts_gs, features, fn="grid_best")
+    
     print("-- Random Parameter Search via 10-fold CV")
     
     # dict of parameter list/distributions to sample
@@ -298,7 +298,6 @@ if __name__ == "__main__":
     
     print("\n-- get_code for best parameters [Random]:")
     dt_ts_rs.fit(X,y)
-    #get_code(dt_ts_rs, features, targets)
+    get_code(dt_ts_rs, features, targets)
     
     visualize_tree(dt_ts_rs, features, fn="rand_best")
-"""
