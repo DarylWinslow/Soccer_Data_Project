@@ -261,12 +261,13 @@ if __name__ == "__main__":
                                               scores.std()),
                                               end="\n\n" )
     
-    print("\n-- get_code for best parameters [Grid]:", end="\n\n")
-    dt_ts_gs.fit(X,y)
-    get_code(dt_ts_gs, features, targets)
+    #print("\n-- get_code for best parameters [Grid]:", end="\n\n")
+    #dt_ts_gs.fit(X,y)
+    #get_code(dt_ts_gs, features, targets)
     
-    visualize_tree(dt_ts_gs, features, fn="grid_best")
-    
+    #visualize_tree(dt_ts_gs, features, fn="grid_best")
+
+"""    
     print("-- Random Parameter Search via 10-fold CV")
     
     # dict of parameter list/distributions to sample
@@ -297,3 +298,4 @@ if __name__ == "__main__":
     get_code(dt_ts_rs, features, targets)
     
     visualize_tree(dt_ts_rs, features, fn="rand_best")
+"""

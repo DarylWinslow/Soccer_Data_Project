@@ -231,7 +231,7 @@ if __name__ == "__main__":
     print("-- 10-fold cross-validation ")
           
           
-    dt_old = RandomForestClassifier(n_estimators=10)
+    dt_old = RandomForestClassifier()
  
     dt_old = dt_old.fit(X, y)
 
@@ -250,7 +250,7 @@ if __name__ == "__main__":
                   "max_leaf_nodes": [None, 5, 10, 20],
                   }
     
-    dt = DecisionTreeClassifier()
+    dt = RandomForestClassifier()
     ts_gs = run_gridsearch(X, y, dt, param_grid, cv=10)
     
     print("\n-- Best Parameters:")
@@ -259,18 +259,19 @@ if __name__ == "__main__":
     
     # test the retuned best parameters
     print("\n\n-- Testing best parameters [Grid]...")
-    dt_ts_gs = DecisionTreeClassifier(**ts_gs)
+    dt_ts_gs = RandomForestClassifier(**ts_gs)
     scores = cross_val_score(dt_ts_gs, X, y, cv=10)
     print("mean: {:.3f} (std: {:.3f})".format(scores.mean(), 
                                               scores.std()),
                                               end="\n\n" )
     
-    print("\n-- get_code for best parameters [Grid]:", end="\n\n")
-    dt_ts_gs.fit(X,y)
-    get_code(dt_ts_gs, features, targets)
+    #print("\n-- get_code for best parameters [Grid]:", end="\n\n")
+    #dt_ts_gs.fit(X,y)
+    #get_code(dt_ts_gs, features, targets)
     
-    visualize_tree(dt_ts_gs, features, fn="grid_best")
+    #visualize_tree(dt_ts_gs, features, fn="grid_best")
     
+"""    
     print("-- Random Parameter Search via 10-fold CV")
     
     # dict of parameter list/distributions to sample
@@ -301,3 +302,4 @@ if __name__ == "__main__":
     get_code(dt_ts_rs, features, targets)
     
     visualize_tree(dt_ts_rs, features, fn="rand_best")
+"""
