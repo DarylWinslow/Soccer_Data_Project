@@ -184,7 +184,7 @@ def run_gridsearch(X, y, clf, param_grid, cv=5):
     top_params = report(grid_search.grid_scores_, 3)
     return  top_params
 
-def run_randomsearch(X, y, clf, para_dist, cv=5,
+def run_randomsearch(X, y, clf, param_dist, cv=5,
                      n_iter_search=20):
     """Run a random search for best Decision Tree parameters.
     
@@ -232,7 +232,7 @@ if __name__ == "__main__":
           
           
     dt_old = AdaBoostClassifier(
-    DecisionTreeClassifier(max_depth=3),
+    DecisionTreeClassifier(max_depth=5),
     n_estimators=1000,
     learning_rate=0.4, random_state=42)
  
