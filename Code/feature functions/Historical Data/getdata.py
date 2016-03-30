@@ -7,12 +7,11 @@ import pandas as pd
 #Open file or download data for last 6 years of PL Football
 def get_foot_data():
     """Get the E0 data, from local csv or download."""
-    if os.path.exists("bigdata.csv"):
-        print("-- bigdata.csv found locally")
-        df = pd.read_csv("bigdata.csv", index_col=0)
+    if os.path.exists("histdata.csv"):
+        print("-- histdata.csv found locally")
+        df = pd.read_csv("histdata.csv", index_col=0)
     else:
-        print("-- can't find bigdata.csv, downloading latest data")
-        fn = "http://www.football-data.co.uk/mmz4281/1516/E0.csv"
+        print("-- can't find hist.csv, downloading latest data")
         fn1 = "http://www.football-data.co.uk/mmz4281/1415/E0.csv"
         fn2 = "http://www.football-data.co.uk/mmz4281/1314/E0.csv"
         fn3 = "http://www.football-data.co.uk/mmz4281/1213/E0.csv"
@@ -24,7 +23,6 @@ def get_foot_data():
         fn9 = "http://www.football-data.co.uk/mmz4281/0607/E0.csv"
         
         try:
-            df = pd.read_csv(fn)
             df1 = pd.read_csv(fn1)
             with open("1415.csv", 'w') as f1:
                 df1.to_csv(f1)
@@ -53,12 +51,12 @@ def get_foot_data():
             with open("0607.csv", 'w') as f9:
                 df9.to_csv(f9)
                 
-            df = pd.concat([df, df1, df2, df3, df4, df5, df6, df7, df8, df9])
+            df = pd.concat([df1, df2, df3, df4, df5, df6, df7, df8, df9])
         except:
             exit("-- Unable to download csv files")
 
-        with open("bigdata.csv", 'w') as f:
-            print("-- writing to local bigdata.csv file")
+        with open("histdata.csv", 'w') as f:
+            print("-- writing to local histdata.csv file")
             df.to_csv(f)
             
     df = select_columns(df)
@@ -227,15 +225,12 @@ if __name__ == "__main__":
     """
     
     bigdf = get_foot_data()
-    bigdf['Date'] = pd.to_datetime(bigdf['Date'], dayfirst=True)
-    testdf=pd.read_csv("testfuture.csv", index_col=0)
-    testdf['Date'] = pd.to_datetime(testdf['Date'], dayfirst=True)
-    testdf = testdf.sort_values('Date')
+    #testdf=pd.read_csv("histmodeldata.csv", index_col=0)
     sorteddf = bigdf.sort_values('Date')
     newdf= pd.DataFrame(columns=['Date', 'HomeTeam', 'AwayTeam', 'FTR', 'HWDL', 'HGS', 'HGA', 'HRC',
                                 'AWDL', 'AGS', 'AGA', 'ARC', 'H2hWDL', 'H2hGS', 'H2hGA', 'H2hRC'])
-                              
-    for index, row in testdf.iterrows():
+                                
+    for index, row in bigdf.iterrows():
         #print(row['HomeTeam'], row['Referee'])
         date=row['Date']
         home=row['HomeTeam']
@@ -243,10 +238,7 @@ if __name__ == "__main__":
         ftr=row['FTR']
         datedf=date_search(sorteddf, date)
         hl6=last_six(home, datedf, ha='h')
-        print(home + " " + away)
-        print(hl6)
         al6=last_six(away, datedf, ha='a')
-        print(al6)
         h2hdf=head_to_head(home, away, datedf)
         h2hl6=last_six(home, h2hdf, h2h='y')
         d = {'Date': [date], 'HomeTeam': [home], 'AwayTeam': [away], 'FTR':[ftr]}
@@ -255,7 +247,7 @@ if __name__ == "__main__":
         #print(newrow)
         newdf = newdf.append(newrow)   
         
-        with open("futuretestmodel.csv", 'w') as f:
+        with open("histmodeldata.csv", 'w') as f:
             newdf.to_csv(f)
     
     
