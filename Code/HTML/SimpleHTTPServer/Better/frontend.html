@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<!-- Images by various sources under the Creative Commons CC0 license and/or the Creative Commons Zero license. 
+Although you can use them, for a more unique website, replace these images with your own. -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Football Predictions</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+	<!-- Feature -->
+	<div class="jumbotron feature">
+		<div class="container">
+			<h1><span class="glyphicon glyphicon-equalizer"></span>EPL Predictions and Stats</h1>
+			<p>Predicting footbal results with machine learning techniques</p>
+		</div>
+	</div>
+
+
+    <!-- Heading -->
+	<div class="container">
+	
+		<div class="text-center">
+			<div class="row">
+				<div class="col-xs-12">
+					<h1 class="text-center">Predictions</h1>
+					<form name=pred_form>
+					<h3>This Week's Predictions: <br> 
+					<span id="pred_result"><strong>Click</strong></span>
+					<input type=button onClick="pred_button();" value="Here" title="start">
+					</form>
+				</div>
+			</div>
+		</div>
+	
+		<div class="text-center">
+			<div class="row">
+				<div class="col-xs-12">
+					<h1 class="text-center">View Team Form</h1>
+					<form name=test_form>
+					<h3>Select Team Name		
+					<select name="test_text">
+						<option value="Arsenal">Arsenal</option>
+						<option value="Aston Villa">Aston Villa</option>
+						<option value="Bournemouth">Bournemouth</option>
+						<option value="Chelsea">Chelsea</option>
+						<option value="Crystal Palace">Crystal Palace</option>
+						<option value="Everton">Everton</option>
+						<option value="Leicester">Leicester</option>
+						<option value="Liverpool">Liverpool</option>
+						<option value="Man City">Man City</option>
+						<option value="Man United">Man United</option>
+						<option value="Newcastle">Newcastle</option>
+						<option value="Norwich">Norwich</option>
+						<option value="Southampton">Southampton</option>
+						<option value="Stoke">Stoke</option>
+						<option value="Sunderland">Sunderland</option>
+						<option value="Swansea">Swansea</option>
+						<option value="Tottenham">Tottenham</option>
+						<option value="Watford">Watford</option>
+						<option value="West Brom">West Brom</option>
+						<option value="West Ham">West Ham</option>
+					</select>					
+					<input type=button onClick="test_button();" value="Search" title="start">
+					<span id="test_result"><strong><br></strong></span>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		
+	<!-- Footer -->
+	<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 footer-info-item text-center">
+						<hr></hr><br>
+						<h3>Daryl Winslow</h3>
+						daryl.winslow@mydit.ie</p>
+					</div>
+				</div>
+			</div>
+	</footer>
+
+	
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	
+	<!-- IE10 viewport bug workaround -->
+	<script src="js/ie10-viewport-bug-workaround.js"></script>
+	
+	<script type="text/javascript">
+	
+	function xml_http_post(url, data, callback) {
+		var req = false;
+		try {
+			// Firefox, Opera 8.0+, Safari
+			req = new XMLHttpRequest();
+		}
+		catch (e) {
+			// Internet Explorer
+			try {
+				req = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			catch (e) {
+				try {
+					req = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				catch (e) {
+					alert("Your browser does not support AJAX!");
+					return false;
+				}
+			}
+		}
+		req.open("POST", url, true);
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) {
+				callback(req);
+			}
+		}
+		req.send(data);
+	}
+
+	function test_button() {
+		var data = document.test_form.test_text.value;           
+		xml_http_post("frontend.html", data, test_handle)
+	}
+	
+	function pred_button() {
+		var data = "predict";           
+		xml_http_post("frontend.html", data, pred_handle)
+	}
+
+	function test_handle(req) {
+		var elem = document.getElementById('test_result')
+		elem.innerHTML =  req.responseText
+	}
+	
+	function pred_handle(req) {
+		var elem = document.getElementById('pred_result')
+		elem.innerHTML =  req.responseText
+	}
+
+	</script>
+	
+</body>
+
+</html>

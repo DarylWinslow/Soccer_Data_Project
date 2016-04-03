@@ -17,27 +17,40 @@ class TestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         """Handle a post request"""
         length = int(self.headers.getheader('content-length'))        
         data_string = self.rfile.read(length)
-        try:
-            result = getdata.last_six(data_string)
-            result = result.to_html()
-            result = "<h3>"+data_string+"</h3>"+result
-            result = unicode(result)
-        except:
-            result = 'error'
+        print(data_string)
+        if data_string == 'predict':
+            try:
+                result = pd.read_csv("prediction.csv")
+                result = getdata.select_columns(result, columns=['Date','HomeTeam','AwayTeam','Prediction'])
+                result = result.to_html()
+                result = "<div style = 'display: inline-block;'>"+result+"</div><br>"
+                
+            except:
+                result = 'error'
+        else:
+            try:
+                result = getdata.last_six(data_string)
+                result = result.to_html()
+                result = "<h3>"+data_string+" Last Six Games</h3><div style = 'display: inline-block;'>"+result+"</div><br><h4> WDL: Team gets +1 for win, -1 for loss</h4>"
+                #result = unicode(result)
+            except:
+                result = 'error'
         self.wfile.write(result)
         
+"""        
     def do_GET(self):
-        """Handle a get request"""
-        length = int(self.headers.getheader('content-length'))        
-        data_string = self.rfile.read(length)
+        #length = int(self.headers.getheader('content-length'))        
+        #data_string = self.rfile.read(length)
         try:
             result = pd.read_csv("prediction.csv")
             result = getdata.select_columns(result, columns=['Date','HomeTeam','AwayTeam','Prediction'])
             result = result.to_html()
         except:
             result = 'error'
+            self.send_response(200)
+            self.end_headers()
         self.wfile.write(result)
-
+"""
 
 def open_browser():
     """Start a browser after waiting for half a second."""

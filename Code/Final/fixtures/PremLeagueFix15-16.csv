@@ -1,0 +1,381 @@
+Date,HomeTeam,AwayTeam
+8/8/2015,Man Utd,Tottenham
+8/8/2015,Bournemouth,Aston Villa
+8/8/2015,Everton,Watford
+8/8/2015,Leicester,Sunderland
+8/8/2015,Norwich,Crystal Palace
+8/8/2015,Chelsea,Swansea
+8/9/2015,Arsenal,West Ham
+8/9/2015,Newcastle,Southampton
+8/9/2015,Stoke,Liverpool
+8/10/2015,West Brom,Man City
+8/14/2015,Aston Villa,Man Utd
+8/15/2015,Southampton,Everton
+8/15/2015,Sunderland,Norwich
+8/15/2015,Swansea,Newcastle
+8/15/2015,Tottenham,Stoke
+8/15/2015,Watford,West Brom
+8/15/2015,West Ham,Leicester
+8/16/2015,Crystal Palace,Arsenal
+8/16/2015,Man City,Chelsea
+8/17/2015,Liverpool,Bournemouth
+8/22/2015,Man Utd,Newcastle
+8/22/2015,Crystal Palace,Aston Villa
+8/22/2015,Leicester,Tottenham
+8/22/2015,Norwich,Stoke
+8/22/2015,Sunderland,Swansea
+8/22/2015,West Ham,Bournemouth
+8/23/2015,West Brom,Chelsea
+8/23/2015,Everton,Man City
+8/23/2015,Watford,Southampton
+8/24/2015,Arsenal,Liverpool
+8/29/2015,Newcastle,Arsenal
+8/29/2015,Aston Villa,Sunderland
+8/29/2015,Bournemouth,Leicester
+8/29/2015,Chelsea,Crystal Palace
+8/29/2015,Liverpool,West Ham
+8/29/2015,Man City,Watford
+8/29/2015,Stoke,West Brom
+8/29/2015,Tottenham,Everton
+8/30/2015,Southampton,Norwich
+8/30/2015,Swansea,Man Utd
+12/09/2015,Everton,Chelsea
+12/09/2015,Arsenal,Stoke
+12/09/2015,Crystal Palace,Man City
+12/09/2015,Norwich,Bournemouth
+12/09/2015,Watford,Swansea
+12/09/2015,West Brom,Southampton
+12/09/2015,Man Utd,Liverpool
+13/09/2015,Sunderland,Tottenham
+13/09/2015,Leicester,Aston Villa
+14/09/2015,West Ham,Newcastle
+19/09/2015,Chelsea,Arsenal
+19/09/2015,Aston Villa,West Brom
+19/09/2015,Bournemouth,Sunderland
+19/09/2015,Newcastle,Watford
+19/09/2015,Stoke,Leicester
+19/09/2015,Swansea,Everton
+19/09/2015,Man City,West Ham
+20/09/2015,Tottenham,Crystal Palace
+20/09/2015,Liverpool,Norwich
+20/09/2015,Southampton,Man Utd
+26/09/2015,Tottenham,Man City
+26/09/2015,Leicester,Arsenal
+26/09/2015,Liverpool,Aston Villa
+26/09/2015,Man Utd,Sunderland
+26/09/2015,Southampton,Swansea
+26/09/2015,Stoke,Bournemouth
+26/09/2015,West Ham,Norwich
+26/09/2015,Newcastle,Chelsea
+27/09/2015,Watford,Crystal Palace
+28/09/2015,West Brom,Everton
+03/10/2015,Crystal Palace,West Brom
+03/10/2015,Aston Villa,Stoke
+03/10/2015,Bournemouth,Watford
+03/10/2015,Man City,Newcastle
+03/10/2015,Norwich,Leicester
+03/10/2015,Sunderland,West Ham
+03/10/2015,Chelsea,Southampton
+04/10/2015,Everton,Liverpool
+04/10/2015,Arsenal,Man Utd
+04/10/2015,Swansea,Tottenham
+17/10/2015,Tottenham,Liverpool
+17/10/2015,Chelsea,Aston Villa
+17/10/2015,Crystal Palace,West Ham
+17/10/2015,Everton,Man Utd
+17/10/2015,Man City,Bournemouth
+17/10/2015,Southampton,Leicester
+17/10/2015,West Brom,Sunderland
+17/10/2015,Watford,Arsenal
+18/10/2015,Newcastle,Norwich
+19/10/2015,Swansea,Stoke
+24/10/2015,Aston Villa,Swansea
+24/10/2015,Leicester,Crystal Palace
+24/10/2015,Norwich,West Brom
+24/10/2015,Stoke,Watford
+24/10/2015,West Ham,Chelsea
+24/10/2015,Arsenal,Everton
+25/10/2015,Sunderland,Newcastle
+25/10/2015,Bournemouth,Tottenham
+25/10/2015,Man Utd,Man City
+25/10/2015,Liverpool,Southampton
+31/10/2015,Chelsea,Liverpool
+31/10/2015,Crystal Palace,Man Utd
+31/10/2015,Man City,Norwich
+31/10/2015,Newcastle,Stoke
+31/10/2015,Swansea,Arsenal
+31/10/2015,Watford,West Ham
+31/10/2015,West Brom,Leicester
+01/11/2015,Everton,Sunderland
+01/11/2015,Southampton,Bournemouth
+02/11/2015,Tottenham,Aston Villa
+07/11/2015,Bournemouth,Newcastle
+07/11/2015,Leicester,Watford
+07/11/2015,Man Utd,West Brom
+07/11/2015,Norwich,Swansea
+07/11/2015,Sunderland,Southampton
+07/11/2015,West Ham,Everton
+07/11/2015,Stoke,Chelsea
+08/11/2015,Aston Villa,Man City
+08/11/2015,Arsenal,Tottenham
+08/11/2015,Liverpool,Crystal Palace
+21/11/2015,Watford,Man Utd
+21/11/2015,Chelsea,Norwich
+21/11/2015,Everton,Aston Villa
+21/11/2015,Newcastle,Leicester
+21/11/2015,Southampton,Stoke
+21/11/2015,Swansea,Bournemouth
+21/11/2015,West Brom,Arsenal
+21/11/2015,Man City,Liverpool
+22/11/2015,Tottenham,West Ham
+23/11/2015,Crystal Palace,Sunderland
+28/11/2015,Aston Villa,Watford
+28/11/2015,Bournemouth,Everton
+28/11/2015,Crystal Palace,Newcastle
+28/11/2015,Man City,Southampton
+28/11/2015,Sunderland,Stoke
+28/11/2015,Leicester,Man Utd
+29/11/2015,Tottenham,Chelsea
+29/11/2015,West Ham,West Brom
+29/11/2015,Liverpool,Swansea
+29/11/2015,Norwich,Arsenal
+05/12/2015,Arsenal,Sunderland
+05/12/2015,Chelsea,Bournemouth
+05/12/2015,Everton,Crystal Palace
+05/12/2015,Man Utd,West Ham
+05/12/2015,Newcastle,Liverpool
+05/12/2015,Southampton,Aston Villa
+05/12/2015,Stoke,Man City
+05/12/2015,Swansea,Leicester
+05/12/2015,Watford,Norwich
+05/12/2015,West Brom,Tottenham
+12/12/2015,Aston Villa,Arsenal
+12/12/2015,Bournemouth,Man Utd
+12/12/2015,Crystal Palace,Southampton
+12/12/2015,Leicester,Chelsea
+12/12/2015,Liverpool,West Brom
+12/12/2015,Man City,Swansea
+12/12/2015,Norwich,Everton
+12/12/2015,Sunderland,Watford
+12/12/2015,Tottenham,Newcastle
+12/12/2015,West Ham,Stoke
+19/12/2015,Arsenal,Man City
+19/12/2015,Chelsea,Sunderland
+19/12/2015,Everton,Leicester
+19/12/2015,Man Utd,Norwich
+19/12/2015,Newcastle,Aston Villa
+19/12/2015,Southampton,Tottenham
+19/12/2015,Stoke,Crystal Palace
+19/12/2015,Swansea,West Ham
+19/12/2015,Watford,Liverpool
+19/12/2015,West Brom,Bournemouth
+26/12/2015,Aston Villa,West Ham
+26/12/2015,Bournemouth,Crystal Palace
+26/12/2015,Chelsea,Watford
+26/12/2015,Liverpool,Leicester
+26/12/2015,Man City,Sunderland
+26/12/2015,Newcastle,Everton
+26/12/2015,Southampton,Arsenal
+26/12/2015,Stoke,Man Utd
+26/12/2015,Swansea,West Brom
+26/12/2015,Tottenham,Norwich
+28/12/2015,Arsenal,Bournemouth
+28/12/2015,Crystal Palace,Swansea
+28/12/2015,Everton,Stoke
+28/12/2015,Leicester,Man City
+28/12/2015,Man Utd,Chelsea
+28/12/2015,Norwich,Aston Villa
+28/12/2015,Sunderland,Liverpool
+28/12/2015,Watford,Tottenham
+28/12/2015,West Brom,Newcastle
+28/12/2015,West Ham,Southampton
+02/01/2016,Arsenal,Newcastle
+02/01/2016,Crystal Palace,Chelsea
+02/01/2016,Everton,Tottenham
+02/01/2016,Leicester,Bournemouth
+02/01/2016,Man Utd,Swansea
+02/01/2016,Norwich,Southampton
+02/01/2016,Sunderland,Aston Villa
+02/01/2016,Watford,Man City
+02/01/2016,West Brom,Stoke
+02/01/2016,West Ham,Liverpool
+12/01/2016,Aston Villa,Crystal Palace
+12/01/2016,Bournemouth,West Ham
+12/01/2016,Swansea,Sunderland
+12/01/2016,Liverpool,Arsenal
+13/01/2016,Chelsea,West Brom
+13/01/2016,Man City,Everton
+13/01/2016,Newcastle,Man Utd
+13/01/2016,Southampton,Watford
+13/01/2016,Stoke,Norwich
+13/01/2016,Tottenham,Leicester
+16/01/2016,Aston Villa,Leicester
+16/01/2016,Bournemouth,Norwich
+16/01/2016,Chelsea,Everton
+16/01/2016,Liverpool,Man Utd
+16/01/2016,Man City,Crystal Palace
+16/01/2016,Newcastle,West Ham
+16/01/2016,Southampton,West Brom
+16/01/2016,Stoke,Arsenal
+16/01/2016,Swansea,Watford
+16/01/2016,Tottenham,Sunderland
+23/01/2016,Arsenal,Chelsea
+23/01/2016,Crystal Palace,Tottenham
+23/01/2016,Everton,Swansea
+23/01/2016,Leicester,Stoke
+23/01/2016,Man Utd,Southampton
+23/01/2016,Norwich,Liverpool
+23/01/2016,Sunderland,Bournemouth
+23/01/2016,Watford,Newcastle
+23/01/2016,West Brom,Aston Villa
+23/01/2016,West Ham,Man City
+02/02/2016,Arsenal,Southampton
+02/02/2016,Leicester,Liverpool
+02/02/2016,Norwich,Tottenham
+02/02/2016,Sunderland,Man City
+02/02/2016,Watford,Chelsea
+02/02/2016,West Ham,Aston Villa
+02/02/2016,Crystal Palace,Bournemouth
+02/02/2016,Man Utd,Stoke
+02/02/2016,West Brom,Swansea
+03/02/2016,Everton,Newcastle
+06/02/2016,Aston Villa,Norwich
+06/02/2016,Bournemouth,Arsenal
+06/02/2016,Chelsea,Man Utd
+06/02/2016,Liverpool,Sunderland
+06/02/2016,Man City,Leicester
+06/02/2016,Newcastle,West Brom
+06/02/2016,Southampton,West Ham
+06/02/2016,Stoke,Everton
+06/02/2016,Swansea,Crystal Palace
+06/02/2016,Tottenham,Watford
+13/02/2016,Arsenal,Leicester
+13/02/2016,Aston Villa,Liverpool
+13/02/2016,Bournemouth,Stoke
+13/02/2016,Chelsea,Newcastle
+13/02/2016,Crystal Palace,Watford
+13/02/2016,Everton,West Brom
+13/02/2016,Man City,Tottenham
+13/02/2016,Norwich,West Ham
+13/02/2016,Sunderland,Man Utd
+13/02/2016,Swansea,Southampton
+27/02/2016,Leicester,Norwich
+27/02/2016,Liverpool,Everton
+27/02/2016,Man Utd,Arsenal
+27/02/2016,Newcastle,Man City
+27/02/2016,Southampton,Chelsea
+27/02/2016,Stoke,Aston Villa
+27/02/2016,Tottenham,Swansea
+27/02/2016,Watford,Bournemouth
+27/02/2016,West Brom,Crystal Palace
+27/02/2016,West Ham,Sunderland
+01/03/2016,Arsenal,Swansea
+01/03/2016,Aston Villa,Everton
+01/03/2016,Bournemouth,Southampton
+01/03/2016,Leicester,West Brom
+01/03/2016,Norwich,Chelsea
+01/03/2016,Sunderland,Crystal Palace
+01/03/2016,West Ham,Tottenham
+01/03/2016,Liverpool,Man City
+01/03/2016,Man Utd,Watford
+02/03/2016,Stoke,Newcastle
+05/03/2016,Chelsea,Stoke
+05/03/2016,Crystal Palace,Liverpool
+05/03/2016,Everton,West Ham
+05/03/2016,Man City,Aston Villa
+05/03/2016,Newcastle,Bournemouth
+05/03/2016,Southampton,Sunderland
+05/03/2016,Swansea,Norwich
+05/03/2016,Tottenham,Arsenal
+05/03/2016,Watford,Leicester
+05/03/2016,West Brom,Man Utd
+12/03/2016,Arsenal,West Brom
+12/03/2016,Aston Villa,Tottenham
+12/03/2016,Bournemouth,Swansea
+12/03/2016,Leicester,Newcastle
+12/03/2016,Liverpool,Chelsea
+12/03/2016,Man Utd,Crystal Palace
+12/03/2016,Norwich,Man City
+12/03/2016,Stoke,Southampton
+12/03/2016,Sunderland,Everton
+12/03/2016,West Ham,Watford
+19/03/2016,Chelsea,West Ham
+19/03/2016,Crystal Palace,Leicester
+19/03/2016,Everton,Arsenal
+19/03/2016,Man City,Man Utd
+19/03/2016,Newcastle,Sunderland
+19/03/2016,Southampton,Liverpool
+19/03/2016,Swansea,Aston Villa
+19/03/2016,Tottenham,Bournemouth
+19/03/2016,Watford,Stoke
+19/03/2016,West Brom,Norwich
+02/04/2016,Arsenal,Watford
+02/04/2016,Aston Villa,Chelsea
+02/04/2016,Bournemouth,Man City
+02/04/2016,Leicester,Southampton
+02/04/2016,Liverpool,Tottenham
+02/04/2016,Man Utd,Everton
+02/04/2016,Norwich,Newcastle
+02/04/2016,Stoke,Swansea
+02/04/2016,Sunderland,West Brom
+02/04/2016,West Ham,Crystal Palace
+09/04/2016,Aston Villa,Bournemouth
+09/04/2016,Crystal Palace,Norwich
+09/04/2016,Liverpool,Stoke
+09/04/2016,Man City,West Brom
+09/04/2016,Southampton,Newcastle
+09/04/2016,Sunderland,Leicester
+09/04/2016,Swansea,Chelsea
+09/04/2016,Tottenham,Man Utd
+09/04/2016,Watford,Everton
+09/04/2016,West Ham,Arsenal
+16/04/2016,Arsenal,Crystal Palace
+16/04/2016,Bournemouth,Liverpool
+16/04/2016,Chelsea,Man City
+16/04/2016,Everton,Southampton
+16/04/2016,Leicester,West Ham
+16/04/2016,Man Utd,Aston Villa
+16/04/2016,Newcastle,Swansea
+16/04/2016,Norwich,Sunderland
+16/04/2016,Stoke,Tottenham
+16/04/2016,West Brom,Watford
+23/04/2016,Aston Villa,Southampton
+23/04/2016,Bournemouth,Chelsea
+23/04/2016,Crystal Palace,Everton
+23/04/2016,Leicester,Swansea
+23/04/2016,Liverpool,Newcastle
+23/04/2016,Man City,Stoke
+23/04/2016,Norwich,Watford
+23/04/2016,Sunderland,Arsenal
+23/04/2016,Tottenham,West Brom
+23/04/2016,West Ham,Man Utd
+30/04/2016,Arsenal,Norwich
+30/04/2016,Chelsea,Tottenham
+30/04/2016,Everton,Bournemouth
+30/04/2016,Man Utd,Leicester
+30/04/2016,Newcastle,Crystal Palace
+30/04/2016,Southampton,Man City
+30/04/2016,Stoke,Sunderland
+30/04/2016,Swansea,Liverpool
+30/04/2016,Watford,Aston Villa
+30/04/2016,West Brom,West Ham
+07/05/2016,Aston Villa,Newcastle
+07/05/2016,Bournemouth,West Brom
+07/05/2016,Crystal Palace,Stoke
+07/05/2016,Leicester,Everton
+07/05/2016,Liverpool,Watford
+07/05/2016,Man City,Arsenal
+07/05/2016,Norwich,Man Utd
+07/05/2016,Sunderland,Chelsea
+07/05/2016,Tottenham,Southampton
+07/05/2016,West Ham,Swansea
+15/05/2016,Arsenal,Aston Villa
+15/05/2016,Chelsea,Leicester
+15/05/2016,Everton,Norwich
+15/05/2016,Man Utd,Bournemouth
+15/05/2016,Newcastle,Tottenham
+15/05/2016,Southampton,Crystal Palace
+15/05/2016,Stoke,West Ham
+15/05/2016,Swansea,Man City
+15/05/2016,Watford,Sunderland
+15/05/2016,West Brom,Liverpool

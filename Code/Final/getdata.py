@@ -4,11 +4,11 @@ import os
 import datetime
 import pandas as pd
 
-#Open file or download data for last 6 years of PL Football
+# Open file or download data for last 6 years of PL Football
 def get_foot_data():
     """Get the E0 data, from local csv or download."""
     if os.path.exists("bigdata.csv"):
-        #print("-- bigdata.csv found locally")
+        print("-- bigdata.csv found locally")
         df = pd.read_csv("bigdata.csv", index_col=0)
     else:
         print("-- can't find bigdata.csv, downloading latest data")
@@ -26,63 +26,49 @@ def get_foot_data():
         try:
             df = pd.read_csv(fn)
             df1 = pd.read_csv(fn1)
-            with open("1415.csv", 'w') as f1:
-                df1.to_csv(f1)
             df2 = pd.read_csv(fn2)
-            with open("1314.csv", 'w') as f2:
-                df2.to_csv(f2)
             df3 = pd.read_csv(fn3)
-            with open("1213.csv", 'w') as f3:
-                df3.to_csv(f3)
             df4 = pd.read_csv(fn4)
-            with open("1112.csv", 'w') as f4:
-                df4.to_csv(f4)
             df5 = pd.read_csv(fn5)
-            with open("1011.csv", 'w') as f5:
-                df5.to_csv(f5)
             df6 = pd.read_csv(fn6)
-            with open("0910.csv", 'w') as f6:
-                df6.to_csv(f6)
             df7 = pd.read_csv(fn7)
-            with open("0809.csv", 'w') as f7:
-                df7.to_csv(f7)
             df8 = pd.read_csv(fn8)
-            with open("0708.csv", 'w') as f8:
-                df8.to_csv(f8)
             df9 = pd.read_csv(fn9)
-            with open("0607.csv", 'w') as f9:
-                df9.to_csv(f9)
                 
             df = pd.concat([df, df1, df2, df3, df4, df5, df6, df7, df8, df9])
         except:
             exit("-- Unable to download csv files")
 
         with open("bigdata.csv", 'w') as f:
-            print("-- writing to local bigdata.csv file")
+            print("writing to local bigdata.csv file")
             df.to_csv(f)
             
     df = select_columns(df)
     df['Date'] = pd.to_datetime(df['Date'], dayfirst=True)
     return df
     
-#Refine DataFrame. Default value for columns strips away all the betting odds
+# Refine DataFrame. Default value for columns strips away all the betting odds
 def select_columns(df, columns=['Date','HomeTeam','AwayTeam','FTHG','FTAG','FTR',
                                'HTHG','HTAG','HTR','Referee','HS','AS','HST',
                                'AST','HF','AF','HC','AC','HY','AY','HR','AR']):
     df = df[columns]
-    #print("-- New DataFrame Constructed --")
     return(df)
+
+# Graph a target column against Date  
+def graph_data(df, column):
+    df.set_index(['Date'],inplace=True)
+    plot = df[column].plot()
+    return(plot)
     
-#Returns Team Data for all seasons    
+# Returns Team Data for all seasons    
 def get_team_data(team, df=get_foot_data()):
     """Return DataFrame with Team's Data"""
     Home = df.loc[df['HomeTeam'] == team]
     Away = df.loc[df['AwayTeam'] == team]
     team_data = pd.concat([Home, Away])
-    #print("-- Team DataFrame Constructed --")
     return team_data
     
-
+# Returns Rows where two teams have played each other
 def head_to_head(team1, team2, df=get_foot_data()):
     t1df=get_team_data(team1, df)
     t2df=get_team_data(team2, df)
@@ -116,7 +102,7 @@ def last_month():
     thisDayLastMonth = lastMonth.replace(day=thisDay)
     return(thisDayLastMonth)
     
-
+# Returns dataframe of a teams last 6 games
 def last_six(team, df=get_foot_data(), ha=' ', h2h='n'):
     tdf = get_team_data(team, df)   
     tdf = select_columns(tdf, ['Date', 'HomeTeam', 'AwayTeam', 'FTR', 'FTHG', 'FTAG', 'HR', 'AR'])
@@ -129,37 +115,19 @@ def last_six(team, df=get_foot_data(), ha=' ', h2h='n'):
     wdl=0
     while i < 6:
         if home[i:i+1].FTR.any() == 'H':
-            #print(home[i:i+1])
-            #print("HOME AND WON \n")
             wdl = wdl + 1
         elif home[i:i+1].FTR.any() == 'A':
-            #print(home[i:i+1])
-            #print("HOME AND LOST \n")
-            wdl = wdl - 1
-        #elif home[i:i+1].FTR.any() == 'D':
-            #print(home[i:i+1])
-            #print("HOME DRAW \n")  
+            wdl = wdl - 1 
             
         if away[i:i+1].FTR.any() == 'H':
-            #print(away[i:i+1])
-            #print("AWAY AND LOST \n")
             wdl = wdl - 1
         elif away[i:i+1].FTR.any() == 'A':
-            #print(away[i:i+1])
-            #print("AWAY AND WON \n")
             wdl = wdl + 1
-        #elif away[i:i+1].FTR.any() == 'D':
-            #print(away[i:i+1])
-            #print("AWAY DRAW \n")
         i = i+1
     
-    #print("WDL is " + str(wdl))
     gs=home.FTHG.sum() + away.FTAG.sum()
-    #print("Goals scored is " + str(gs))
     ga=home.FTAG.sum() + away.FTHG.sum()
-    #print("Goals conceded is " +str(ga))
     rc=home.HR.sum()+away.AR.sum()
-    #print("Red cards = "+ str(rc))
     
     if(h2h=='y'): 
         d = {'H2hWDL': [wdl], 'H2hGS': [gs], 'H2hGA': [ga], 'H2hRC': [rc]}
@@ -171,25 +139,23 @@ def last_six(team, df=get_foot_data(), ha=' ', h2h='n'):
         d = {'AWDL': [wdl], 'AGS': [gs], 'AGA': [ga], 'ARC': [rc]}
         l6 = pd.DataFrame(d, columns=['AWDL', 'AGS', 'AGA', 'ARC'])
     else: 
-        d = {'WDL': [wdl], 'GS': [gs], 'GA': [ga], 'RC': [rc]}
-        l6 = pd.DataFrame(d, columns=['WDL', 'GS', 'GA', 'RC'])
+        d = {'WDL': [wdl], 'Scored': [gs], 'Conceded': [ga], 'Red Cards': [rc]}
+        l6 = pd.DataFrame(d, columns=['WDL', 'Scored', 'Conceded', 'Red Cards'])
     
     return(l6)
     
-
+""" Accepts dataframe of downloaded data and iterates through the rows to create
+    a new dataframe with data that can be used to train the classifier """
 def create_model_data(olddf):
-    olddf['Date'] = pd.to_datetime(olddf['Date'], dayfirst=True)
-        
+    olddf['Date'] = pd.to_datetime(olddf['Date'], dayfirst=True) 
     newdf= pd.DataFrame(columns=['Date', 'HomeTeam', 'AwayTeam', 'FTR', 'HWDL', 'HGS', 'HGA', 'HRC',
                                 'AWDL', 'AGS', 'AGA', 'ARC', 'H2hWDL', 'H2hGS', 'H2hGA', 'H2hRC'])
     
     for index, row in olddf.iterrows():
-        #print(row['HomeTeam'], row['Referee'])
         date=row['Date']
         home=row['HomeTeam']
         away=row['AwayTeam']
         ftr=row['FTR']
-        #datedf=date_search(olddf, date)
         hl6=last_six(home, ha='h')
         al6=last_six(away, ha='a')
         h2hdf=head_to_head(home, away)
@@ -197,99 +163,20 @@ def create_model_data(olddf):
         d = {'Date': [date], 'HomeTeam': [home], 'AwayTeam': [away], 'FTR':[ftr]}
         df = pd.DataFrame(d, columns=['Date', 'HomeTeam', 'AwayTeam', 'FTR'])
         newrow = pd.concat([df, hl6, al6, h2hl6], axis=1)
-        #print(newrow)
-        newdf = newdf.append(newrow)        
-    
-    with open("last6model.csv", 'w') as f:
-            newdf.to_csv(f)
-    
+        newdf = newdf.append(newrow)          
     return(newdf)
-    
-    
-    
-    
-
-    
+     
     
 
 
 if __name__ == "__main__":
-    print("\n-- get data:")
-    #df = select_columns(get_foot_data())
-    #print("")
-    #print("Number of rows in bigdata is " + str(len(df)))
     
+    df = get_foot_data()
+    modeldf = create_model_data(df) 
     
-    ####TESTING AREA####
-    """
-    bigdf = get_foot_data()
-    newdf = create_model_data(bigdf)    
+    with open("last6data.csv", 'w') as f:
+            modeldf.to_csv(f)
     
-    
-    
-    # Testing for create model data for predictions function
-    bigdf = get_foot_data()
-    bigdf['Date'] = pd.to_datetime(bigdf['Date'], dayfirst=True)
-    testdf=pd.read_csv("testfuture.csv", index_col=0)
-    testdf['Date'] = pd.to_datetime(testdf['Date'], dayfirst=True)
-    testdf = testdf.sort_values('Date')
-    sorteddf = bigdf.sort_values('Date')
-    newdf= pd.DataFrame(columns=['Date', 'HomeTeam', 'AwayTeam', 'FTR', 'HWDL', 'HGS', 'HGA', 'HRC',
-                                'AWDL', 'AGS', 'AGA', 'ARC', 'H2hWDL', 'H2hGS', 'H2hGA', 'H2hRC'])
-                              
-    for index, row in testdf.iterrows():
-        #print(row['HomeTeam'], row['Referee'])
-        date=row['Date']
-        home=row['HomeTeam']
-        away=row['AwayTeam']
-        ftr=row['FTR']
-        datedf=date_search(sorteddf, date)
-        hl6=last_six(home, datedf, ha='h')
-        #print(home + " " + away)
-        #print(hl6)
-        al6=last_six(away, datedf, ha='a')
-        #print(al6)
-        h2hdf=head_to_head(home, away, datedf)
-        h2hl6=last_six(home, h2hdf, h2h='y')
-        d = {'Date': [date], 'HomeTeam': [home], 'AwayTeam': [away], 'FTR':[ftr]}
-        df = pd.DataFrame(d, columns=['Date', 'HomeTeam', 'AwayTeam', 'FTR'])
-        newrow = pd.concat([df, hl6, al6, h2hl6], axis=1)
-        #print(newrow)
-        newdf = newdf.append(newrow)   
-        
-        with open("futuretestmodel.csv", 'w') as f:
-            newdf.to_csv(f)
-    #######################
-    
-    
-    """
-    
-    """
-    team1 = "Liverpool"
-    team2 = "Everton"
-    
-    Livl6=last_six(team1, ha='h')
-    Evl6=last_six(team2, ha='a')
-    
-    LvE = head_to_head(team1, team2)
-    LvEl6 = last_six(team1, LvE, h2h='y')
-    test = pd.concat([Livl6, Evl6, LvEl6], axis=1)
-    
-    team3 = "Arsenal"
-    team4 = "Chelsea"
-    
-    Arsl6=last_six(team3, ha='h')
-    Chell6=last_six(team4, ha='a')
-    
-    AvC = head_to_head(team3, team4)
-    ACl6 = last_six(team3, AvC, h2h='y')
-    test2 = pd.concat([Arsl6, Chell6, ACl6], axis=1)
-    """
-    """
-    if os.path.exists("E0.csv"):
-        testdf = pd.read_csv("E0.csv", index_col=0)
-        testdf['Date'] = pd.to_datetime(testdf['Date'], dayfirst=True)
-    """    
        
     
     

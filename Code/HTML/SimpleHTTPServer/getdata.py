@@ -26,32 +26,14 @@ def get_foot_data():
         try:
             df = pd.read_csv(fn)
             df1 = pd.read_csv(fn1)
-            with open("1415.csv", 'w') as f1:
-                df1.to_csv(f1)
             df2 = pd.read_csv(fn2)
-            with open("1314.csv", 'w') as f2:
-                df2.to_csv(f2)
             df3 = pd.read_csv(fn3)
-            with open("1213.csv", 'w') as f3:
-                df3.to_csv(f3)
             df4 = pd.read_csv(fn4)
-            with open("1112.csv", 'w') as f4:
-                df4.to_csv(f4)
             df5 = pd.read_csv(fn5)
-            with open("1011.csv", 'w') as f5:
-                df5.to_csv(f5)
             df6 = pd.read_csv(fn6)
-            with open("0910.csv", 'w') as f6:
-                df6.to_csv(f6)
             df7 = pd.read_csv(fn7)
-            with open("0809.csv", 'w') as f7:
-                df7.to_csv(f7)
             df8 = pd.read_csv(fn8)
-            with open("0708.csv", 'w') as f8:
-                df8.to_csv(f8)
             df9 = pd.read_csv(fn9)
-            with open("0607.csv", 'w') as f9:
-                df9.to_csv(f9)
                 
             df = pd.concat([df, df1, df2, df3, df4, df5, df6, df7, df8, df9])
         except:
@@ -189,10 +171,10 @@ def create_model_data(olddf):
         home=row['HomeTeam']
         away=row['AwayTeam']
         ftr=row['FTR']
-        #datedf=date_search(olddf, date)
-        hl6=last_six(home, ha='h')
-        al6=last_six(away, ha='a')
-        h2hdf=head_to_head(home, away)
+        datedf=date_search(olddf, date)
+        hl6=last_six(home, datedf, ha='h')
+        al6=last_six(away, datedf, ha='a')
+        h2hdf=head_to_head(home, away, datedf)
         h2hl6=last_six(home, h2hdf, h2h='y')
         d = {'Date': [date], 'HomeTeam': [home], 'AwayTeam': [away], 'FTR':[ftr]}
         df = pd.DataFrame(d, columns=['Date', 'HomeTeam', 'AwayTeam', 'FTR'])
